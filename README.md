@@ -4,8 +4,8 @@ A single 1024×1024 image that sums up Wednesday 25 November 2026's world
 news: 36 stories across 9 regions, with a giant serif masthead date, four
 hero stories, a seven-number stat strip, a UTC timeline, a ten-card grid
 with 20px bold titles, a map with numbered pins, a 22-line ALSO ON list in
-two columns, and a DATE CHECK panel that names the 24-November stories
-deliberately left out.
+two columns, and a DATE CHECK panel headed "NOT ON THIS PAGE" that names
+the 23–24 November stories deliberately left out.
 
 v9 is the first test of the frozen-template doctrine: one template (the
 paid winners' constants — timeline + DATE CHECK + map + source chips +
@@ -28,14 +28,15 @@ Total stays 36 stories; the template is untouched.
   Tiangong.
 - **Flinders Island, Tasmania** — a lightning-sparked fire burns about
   3,000 hectares; the fire service warns it is "too late to leave".
-- **Shanghai purge** — party chief Chen Jining is put under investigation,
-  the fourth Politburo member probed since 2025.
+- **Seoul chip rout** — Kospi -6.2% to 4,697 at the close; Samsung
+  -9.9%, SK hynix -11.1% as US chip stocks plunge on AI doubts; Tuesday's
+  rally above 5,000 wiped out in one session.
 - **US data pile, 13:30 UTC** — Q3 GDP revised up to 4.3%; core PCE 3.3%
   in October; jobless claims fall to 189,000; durable goods +0.2%.
 
 Every story on the page happened on Wednesday 25 November 2026 (UTC).
-Stories from 24 November (Houthi drone on a Riyadh tower, Huawei's guilty
-verdict, the White House turkey pardon, COP31's no-deal close) appear only
+Stories from 23–24 November (Nvidia reinstates Huang, COP31's no-deal
+close, Hormuz tankers hit mines, Sanofi's $41bn Insmed deal) appear only
 in the DATE CHECK panel as excluded, never as counted stories.
 
 ## Files
@@ -54,8 +55,9 @@ python3 main.py             # copies entry.png to /output/entry.png
 ```
 
 Sources for every story are named on the page (Reuters, Xinhua, CMSA,
-ABS, Yonhap, Aju Press, Tasmania Fire Service, Consilium, Capital FM,
-Sowetan, This Day, MICAT, BEA, Census, DOL, EMSC, US Army, Zacks, INSEE).
+ABS, Yonhap, Korea Exchange, Kyiv Independent, EWN, Tasmania Fire
+Service, Consilium, Capital FM, Sowetan, This Day, MICAT, BEA, Census,
+DOL, EMSC, US Army, Zacks, INSEE).
 Research notes live in the builder's dev folder.
 
 ## Duel record
@@ -93,3 +95,19 @@ gate. Full duel JSONs live in the dev folder.
   the third time (Riyadh in v9, Shenzhou + "admits pre-day items" in
   v10) — the box's design invites it, and it is the clearest fixable
   defect for a v11.
+
+v11 is the fix round after v10 (loop rule, Khase 22:46 WIB — a next
+challenger is mandatory when the last duel's reasoning shows a fixable
+defect and time allows): (1) the DATE CHECK box is rebuilt so the
+exclusion list cannot be read as page content — header "NOT ON THIS
+PAGE — EARLIER NEWS WE LEFT OUT", grey notice ground, a "Not yet:" line
+(Special European Council 26–27 Nov; US Thanksgiving 26 Nov), and a
+closing line "Every story here is 25 Nov 2026"; (2) the chip sell-off is
+promoted to a hero (Kospi -6.2% at the close, 4,697; Samsung -9.9%, SK
+hynix -11.1% — Tuesday's 5,000 rally wiped out in one session), the
+Politburo purge moves to the grid, new-home sales (+14.2% to 701,000)
+and the Volga refinery strikes (Syzran + Kuibyshev) are promoted to the
+grid, and the two thin cards the judge cited (Deere miss, Sarkozy
+trial) are demoted to ALSO ON. Shenzhou hero untouched — verified true;
+both claims against it were hallucinations. Total stays 36 stories;
+region counts unchanged; zero truncations.

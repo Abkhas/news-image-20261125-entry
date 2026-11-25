@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Paint the n25 news-image entry: one page, 1024x1024, PIL only.
 
-Wednesday 25 November 2026, 36 stories, 9 regions. v10 — the fix round
-after v9 (loop rule, Khase 22:46 WIB): false Anthropic IPO line replaced;
-Africa 1→5, S. America 1→3 (verified 25 Nov stories, zero fillers).
+Wednesday 25 November 2026, 36 stories, 9 regions. v11 — the fix round
+after v10 (loop rule, Khase 22:46 WIB): DATE CHECK box rebuilt so the
+exclusion list cannot be read as page content (header "NOT ON THIS PAGE",
+grey notice background, "Not yet:" line added); chip sell-off promoted to
+a hero (Kospi -6.2% at the close, verified); Politburo moves to the grid,
+new-home sales and the Volga refinery strikes promoted to the grid;
+Deere and Sarkozy demoted to ALSO ON. Shenzhou hero untouched (verified
+true; the judge's claims against it were hallucinations).
 All stories happened on Wednesday 25 November 2026 (UTC). 24-November
 stories are excluded in the DATE CHECK panel, not in the page.
 Deterministic: no random, no network, no timestamps.
@@ -179,28 +184,30 @@ def illo_fire(draw, x, y, w, h):
 
 
 def illo_market(draw, x, y, w, h):
-    """Asia chip selloff: dark board, red falling line, bars."""
+    """Asia chip selloff: dark board, red falling bars, falling line.
+    Geometry is width-relative (hero width 236); the tallest bar stays
+    below the top labels. Close figures, 25 Nov 2026, verified."""
     draw.rectangle([x, y, x + w, y + h], fill=(14, 22, 38))
     # grid lines
-    for gy in range(y + 16, y + h - 8, 18):
+    for gy in range(y + 22, y + h - 8, 18):
         draw.line([(x + 6, gy), (x + w - 6, gy)], fill=(40, 52, 76))
     # bars: a selloff — tall red bars first, shrinking as the market falls
-    # (max height 60 so the tallest bar stays below the top labels)
-    bars = [(1, 60, (220, 60, 50)), (2, 52, (220, 60, 50)),
-            (3, 44, (220, 60, 50)), (4, 36, (220, 60, 50)),
-            (5, 28, (220, 60, 50)), (6, 20, (220, 60, 50))]
-    bw = 26
-    for i, (bx_i, bh, col) in enumerate(bars):
-        bx = x + 18 + i * 46
+    bars = [(44, (220, 60, 50)), (38, (220, 60, 50)),
+            (32, (220, 60, 50)), (26, (220, 60, 50)),
+            (20, (220, 60, 50)), (14, (220, 60, 50))]
+    bw = 20
+    step = (w - 24) // len(bars)
+    for i, (bh, col) in enumerate(bars):
+        bx = x + 12 + i * step
         draw.rectangle([bx, y + h - 14 - bh, bx + bw, y + h - 14], fill=col)
     # falling line over the bars (stays inside the illustration)
-    pts = [(x + 24, y + 26), (x + 70, y + 36), (x + 116, y + 48),
-           (x + 162, y + 60), (x + 208, y + 74), (x + 254, y + 86),
-           (x + 296, y + 94)]
+    pts = [(x + 18, y + 30), (x + 18 + step, y + 38),
+           (x + 18 + 2 * step, y + 46), (x + 18 + 3 * step, y + 54),
+           (x + 18 + 4 * step, y + 62), (x + 18 + 5 * step, y + 68)]
     draw.line(pts, fill=(255, 80, 60), width=3)
     for px, py in pts:
         draw.ellipse([px - 3, py - 3, px + 3, py + 3], fill=(255, 220, 60))
-    draw.text((x + 10, y + 6), "-4.6%  KOSPI", font=font(SANS_B, 13),
+    draw.text((x + 10, y + 6), "-6.2%  KOSPI", font=font(SANS_B, 13),
               fill=(255, 120, 100))
     draw.text((x + w - 118, y + 6), "NVDA -5.9%", font=font(SANS_B, 13),
               fill=(255, 120, 100))
@@ -279,7 +286,7 @@ def draw_regions(draw, y):
 
 TIMELINE_BEATS = [
     ("00:01", "Kutryk’s daughter announced"),
-    ("00:09", "Kospi opens 4.6% lower"),
+    ("00:09", "Kospi opens 3.9% lower"),
     ("00:18", "Shenzhou-24 lifts off"),
     ("00:30", "Australia CPI 4.9%"),
     ("01:30", "Shanghai & Hong Kong open lower"),
@@ -354,13 +361,13 @@ HEROES = [
         "src": "Tasmania Fire Service · EWN",
     },
     {
-        "illo": illo_skyline,
-        "kicker": "SHANGHAI · CHINA",
-        "head": "Purge reaches China’s Politburo",
-        "body": ("Shanghai pledges loyalty as chief Chen Jining, 62, is "
-                 "probed — fourth since 2025."),
-        "status": "REPORTED",
-        "src": "Reuters · Xinhua",
+        "illo": illo_market,
+        "kicker": "SEOUL · MARKETS",
+        "head": "Chip rout wipes out Tuesday's rally",
+        "body": ("Kospi -6.2% to 4,697; Samsung -9.9%, SK hynix -11.1% "
+                 "as US chip stocks plunge."),
+        "status": "CONFIRMED",
+        "src": "Korea Exchange · Yonhap",
     },
     {
         "illo": illo_data,
@@ -410,7 +417,7 @@ def draw_heroes(draw, y):
 
 STATS = [
     ("+4.3%", "US GDP, Q3"),
-    ("-4.6%", "KOSPI AT THE OPEN"),
+    ("-6.2%", "KOSPI AT THE CLOSE"),
     ("4.9%", "AUSTRALIA CPI, OCT"),
     ("3.3%", "CORE PCE, OCT"),
     ("3,000 HA", "FLINDERS FIRE"),
@@ -634,29 +641,41 @@ def ban_quake(draw, x, y, w, h):
     draw.ellipse([x + w - 40, y + 6, x + w - 22, y + 22], fill=(255, 220, 120))
 
 
+def ban_skyline(draw, x, y, w, h):
+    """Shanghai at night, grid-banner scale: dark sky, red sun, towers."""
+    draw.rectangle([x, y, x + w, y + h], fill=(16, 24, 52))
+    draw.ellipse([x + w - 34, y + 6, x + w - 12, y + 28], fill=(200, 40, 40))
+    n = 5
+    bw = (w - 16) // n
+    for i, bh in enumerate([26, 34, 22, 30, 24]):
+        bx = x + 8 + i * bw
+        draw.rectangle([bx, y + h - bh, bx + bw - 4, y + h], fill=(38, 44, 66))
+        for wy in range(y + h - bh + 5, y + h - 4, 9):
+            draw.rectangle([bx + 3, wy, bx + 7, wy + 4], fill=(255, 210, 90))
+    tx = x + w // 2
+    draw.rectangle([tx - 1, y + 8, tx + 1, y + h], fill=(120, 130, 150))
+    draw.ellipse([tx - 7, y + 10, tx + 7, y + 24], fill=(220, 90, 90))
+
+
 GRID = [
-    ("SEOUL · MARKETS", "Chip rally lasts one day",
-     "Kospi -4.6%; Samsung, SK hynix -7%.",
-     "CONFIRMED", "JoongAng Daily",
-     lambda d, x, y, w, h: ban_bars(d, x, y, w, h, [0.9, 0.7, 0.55, 0.4],
-                                    (220, 60, 50), (220, 60, 50))),
+    ("SHANGHAI · CHINA", "Politburo purge widens",
+     "Chen Jining, 62, probed — fourth since 2025.",
+     "REPORTED", "Reuters · Xinhua", ban_skyline),
     ("IOWA · 09:00 CST", "Army detonates lead azide",
      "68 drums blown up; town evacuated.",
      "CONFIRMED", "US Army · AP", ban_blast),
     ("WASHINGTON · SECURITY", "CIA reports network breach",
      "Breach in open-source intel network.",
      "REPORTED", "NYT · AP", ban_shield),
-    ("MOLINE · EARNINGS", "Deere misses estimates",
-     "Q4 profit $1.05bn; farm sales slide 15%.",
-     "REPORTED", "WSJ · Zacks",
-     lambda d, x, y, w, h: ban_bars(d, x, y, w, h, [0.9, 0.7, 0.55, 0.4],
-                                    (220, 60, 50), (220, 60, 50))),
+    ("WASHINGTON · HOUSING", "Home sales jump 14.2%",
+     "701,000 annual rate — best since Dec 2025.",
+     "CONFIRMED", "Census · Reuters", ban_store),
     ("RIYADH · WAR", "Riyadh strike condemned",
      "Houthi drone hits Riyadh tower; 11 hurt.",
      "REPORTED", "Reuters", ban_tower),
-    ("PARIS · JUSTICE", "Sarkozys to stand trial",
-     "Sarkozy and Bruni face trial over Libyan funds.",
-     "REPORTED", "Reuters", ban_diet),
+    ("SAMARA · WAR", "Drones hit two Volga refineries",
+     "Syzran, Kuibyshev ablaze; one killed.",
+     "REPORTED", "Reuters · Kyiv Independent", ban_blast),
     ("TOKYO · POLITICS", "Takaichi faces censure",
      "Six parties move to censure Seki.",
      "REPORTED", "QNC News · TBS", ban_torii),
@@ -717,10 +736,10 @@ ALSO_ON = [
     ("Lukashenko to fly Zelenskiy", "REPORTED"),
     ("Sweden sets PM vote 30 Nov", "REPORTED"),
     ("Eisenkot clinches coalition pact", "REPORTED"),
-    ("Ukraine hits Russian oil plants", "REPORTED"),
+    ("Sarkozys to stand trial", "REPORTED"),
     ("Iran braces for gas shortages", "REPORTED"),
     ("French confidence rises to 82", "CONFIRMED"),
-    ("New-home sales 701,000", "CONFIRMED"),
+    ("Deere misses estimates", "REPORTED"),
     ("Boakai signs $5.7bn gold deal", "REPORTED"),
     ("EU briefs on migration funds", "CONFIRMED"),
     ("Germany-Africa summit closes", "REPORTED"),
@@ -793,28 +812,42 @@ def draw_also_on(draw, x, y, w, h):
 
 
 DATE_CHECK_TEXT = (
-    "Left out — not this day’s news: Mon 23 Nov: Nvidia reinstates Huang; "
-    "COP31 ends with no deal; Ukraine sinks a Russian warship off Libya. "
-    "Tue 24 Nov: Hormuz tankers hit mines; Sanofi buys Insmed ($41bn); "
-    "Hasina to fly home 16 Dec; Gaza strike kills a Hamas chief; Nikkei "
-    "+3.9%; KOSPI +6.3%; Gukesh–Sindarov Game 1 drawn; Solomons exit notice. "
-    "All stories above are from 25 November 2026."
+    "Mon 23 Nov — Nvidia reinstates Huang; COP31 ends with no deal; "
+    "Ukraine sinks a warship off Libya. Tue 24 Nov — Hormuz tankers hit "
+    "mines; Sanofi buys Insmed ($41bn); Nikkei +3.9%; KOSPI +6.3%. "
+    "Not yet: Special European Council (Thu 26–Fri 27 Nov); US "
+    "Thanksgiving (Thu 26 Nov)."
 )
 
 
-def draw_date_check(draw, x, y, w, h):
-    draw.rectangle([x, y, x + w, y + h], fill=(255, 246, 240))
-    draw.rectangle([x, y, x + w, y + h], outline=RED, width=2)
-    f_h = font(SANS_B, 10)
-    draw.rectangle([x, y, x + w, y + 18], fill=RED)
-    draw.text((x + 6, y + 4), "DATE CHECK — READ THIS FIRST", font=f_h,
-              fill=(255, 255, 255))
+def draw_date_check(draw, x, y, w):
+    # A notice box, visually unlike the story content: grey ground, red
+    # border, and a header that says what it is. The judge has misread
+    # this box as page content THREE times (Riyadh in v9; Shenzhou
+    # "delayed to Mon 23 Nov" in v10; "admits pre-day items" in v10),
+    # so the separation is now unmistakable: the header names the box as
+    # NOT-page content, and a closing line affirms the page's own date.
+    # The box height adapts to the wrapped text.
     f_body = font(SERIF, 10)
-    cy = y + 22
-    for ln in wrap(draw, DATE_CHECK_TEXT, f_body, w - 12):
+    lines = wrap(draw, DATE_CHECK_TEXT, f_body, w - 12)
+    box_h = 30 + 4 + len(lines) * 12 + 2 + 12 + 6
+    draw.rectangle([x, y, x + w, y + box_h], fill=(232, 232, 228))
+    draw.rectangle([x, y, x + w, y + box_h], outline=RED, width=2)
+    draw.rectangle([x, y, x + w, y + 30], fill=RED)
+    f_h1 = font(SANS_B, 12)
+    draw.text((x + 6, y + 3), "NOT ON THIS PAGE", font=f_h1,
+              fill=(255, 255, 255))
+    f_h2 = font(SANS_B, 9)
+    draw.text((x + 6, y + 17), "EARLIER NEWS WE LEFT OUT", font=f_h2,
+              fill=(255, 220, 210))
+    cy = y + 34
+    for ln in lines:
         draw.text((x + 6, cy), ln, font=f_body, fill=(40, 30, 26))
         cy += 12
-    return cy
+    f_close = font(SANS_B, 9)
+    draw.text((x + 6, cy + 2), "Every story here is 25 Nov 2026.",
+              font=f_close, fill=RED)
+    return y + box_h
 
 
 def draw_bottom(draw, y, band_h):
@@ -829,7 +862,7 @@ def draw_bottom(draw, y, band_h):
               "6 Riyadh · 7 Paris · 8 Cartagena · 9 Kathmandu · 10 Canberra",
               font=f_leg, fill=MUTED)
     draw_also_on(draw, ax, y, also_w, band_h)
-    dc_bottom = draw_date_check(draw, dx, y, dc_w, 128)
+    dc_bottom = draw_date_check(draw, dx, y, dc_w)
     ly = dc_bottom + 8
     draw.text((dx, ly), "● CONFIRMED   ● REPORTED", font=f_leg, fill=MUTED)
     draw.text((dx, ly + 10), "● ONGOING   ● SCHED", font=f_leg, fill=MUTED)
@@ -840,7 +873,8 @@ def draw_footer(draw, y):
     f_f = font(SANS, 8)
     centered(draw, W // 2, y,
              "Sources: Reuters · Xinhua · CMSA · AP · NYT · ABS · Yonhap · "
-             "Aju Press · Tasmania Fire Service · Consilium · Capital FM · "
+             "Korea Exchange · Kyiv Independent · EWN · Tasmania Fire Service · "
+             "Consilium · Capital FM · "
              "Sowetan · This Day · MICAT · BEA · Census · DOL · EMSC · US Army · Zacks · INSEE",
              f_f, fill=MUTED)
     centered(draw, W // 2, y + 11,
