@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""news-image-20261125 entrypoint.
+"""news-image-20261125 entrypoint (v12).
 
 The graded artifact is the committed entry.png, rendered once by
 paint_n25.py in this session. This entrypoint only copies that file to

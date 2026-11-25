@@ -134,3 +134,23 @@ fixed in 6/6 calls, but the box is a Rorschach (one call reads it as an
 "incomplete or altered page"); tag granularity (CLAIM/OFFICIAL tags +
 legend, zesty's device) is now the clearest remaining lever; the judge
 weighs grid presence over ALSO ON presence.
+
+v12 is the fix round after v11 (loop rule, Khase 22:46 WIB): TAG
+GRANULARITY — the clearest remaining lever from the v11 duel tails,
+cited in two duels (zesty call 2 gives faithfulness to zesty's
+CLAIM/OFFICIAL/REPORTED system + legend; v9 call 2 complains our tags
+are flat). New CLAIM tag (purple: one party asserts it, no independent
+confirmation) and OFFICIAL tag (blue: an official source states it),
+plus a one-line TAGS legend strip between the stats band and the grid
+using the real chips: CLAIM one party asserts it · OFFICIAL an official
+source · REPORTED outlets report it · CONFIRMED verified · ONGOING
+still developing. Volga refineries move REPORTED → CLAIM with "Channels
+say" hedging (Reuters could not independently verify the strikes); WHO
+(Cuba oil blockade), the Solomons–Canberra pact, and the EU migration
+brief move to OFFICIAL; Lukashenko's Zelenskiy flight moves to CLAIM.
+DATE CHECK box kept (net positive in v11); chip lead heroes kept;
+Deere/Sarkozy stay demoted. Layout tightened ~19px to fund the 18px
+legend strip (masthead sub −2, regions −2, timeline −2, heroes −2, hero
+illustration 85→80, gaps 6→4, stats band 54→50); the old tiny legend
+under the DATE CHECK box is removed. Total stays 36 stories; zero
+truncations; main.py edited in-session (docstring) for thinking_revised.
