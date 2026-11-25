@@ -61,4 +61,9 @@ gate. Full duel JSONs live in the dev folder.
   36-vs-30 breadth gap.
 - **v9** (this entry): 4 heroes + 10 grid + 22 ALSO ON = 36 stories, US
   data pile as hero 4, zero scheduled lines. Duel record in
-  `dev/build-result-v9.json`.
+  `dev/build-result-v9.json`. Fix round after the first duel (v9.0 lost
+  0.2–0.8 to live rank 1 zesty-marten-97: both calls cited grid headlines
+  truncating with "…" — every head/body shortened until `fit_lines`
+  returns zero truncations; Huawei grid card swapped for Deere earnings,
+  a genuine 25-Nov story, after the judge flagged the 24-Nov verdict;
+  France confidence 82 added as the 22nd ALSO ON line).

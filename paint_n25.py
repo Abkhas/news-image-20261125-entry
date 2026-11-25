@@ -253,8 +253,8 @@ def draw_masthead(draw):
 REGION_CHIPS = [
     ("EAST ASIA 6", (178, 34, 34)),
     ("OCEANIA 5", (21, 101, 192)),
-    ("N. AMERICA 11", (46, 125, 50)),
-    ("EUROPE 5", (90, 60, 140)),
+    ("N. AMERICA 10", (46, 125, 50)),
+    ("EUROPE 6", (90, 60, 140)),
     ("MIDDLE EAST 3", (176, 124, 0)),
     ("S. ASIA 2", (0, 130, 130)),
     ("S. AMERICA 1", (160, 82, 45)),
@@ -634,34 +634,36 @@ def ban_quake(draw, x, y, w, h):
 
 
 GRID = [
-    ("SEOUL · MARKETS", "Asia’s chip rally lasts one day",
-     "Kospi falls 4.6%; Samsung, SK hynix drop ~7%.",
+    ("SEOUL · MARKETS", "Chip rally lasts one day",
+     "Kospi -4.6%; Samsung, SK hynix -7%.",
      "CONFIRMED", "JoongAng Daily",
      lambda d, x, y, w, h: ban_bars(d, x, y, w, h, [0.9, 0.7, 0.55, 0.4],
                                     (220, 60, 50), (220, 60, 50))),
     ("IOWA · 09:00 CST", "Army detonates lead azide",
-     "68 drums blown up at 09:00 CST; town evacuated.",
+     "68 drums blown up; town evacuated.",
      "CONFIRMED", "US Army · AP", ban_blast),
     ("WASHINGTON · SECURITY", "CIA reports network breach",
-     "Breach found in an open-source intel network.",
+     "Breach in open-source intel network.",
      "REPORTED", "NYT · AP", ban_shield),
-    ("NEW YORK · JUSTICE", "Huawei guilty in US trial",
-     "Jury: Huawei deceived banks, stole trade secrets.",
-     "REPORTED", "Reuters", ban_court),
-    ("RIYADH · WAR", "World condemns Riyadh strike",
-     "Houthi drone hits Riyadh’s tallest tower; 11 hurt.",
+    ("MOLINE · EARNINGS", "Deere misses estimates",
+     "Q4 profit $1.05bn; farm sales slide 15%.",
+     "REPORTED", "WSJ · Zacks",
+     lambda d, x, y, w, h: ban_bars(d, x, y, w, h, [0.9, 0.7, 0.55, 0.4],
+                                    (220, 60, 50), (220, 60, 50))),
+    ("RIYADH · WAR", "Riyadh strike condemned",
+     "Houthi drone hits Riyadh tower; 11 hurt.",
      "REPORTED", "Reuters", ban_tower),
-    ("PARIS · JUSTICE", "Sarkozys ordered to stand trial",
+    ("PARIS · JUSTICE", "Sarkozys to stand trial",
      "Sarkozy and Bruni face trial over Libyan funds.",
      "REPORTED", "Reuters", ban_diet),
-    ("TOKYO · POLITICS", "Censure motion hits Takaichi",
-     "Six parties move to censure Seki; he refuses to quit.",
+    ("TOKYO · POLITICS", "Takaichi faces censure",
+     "Six parties move to censure Seki.",
      "REPORTED", "QNC News · TBS", ban_torii),
-    ("CARTAGENA · CRIME", "Hostages seized in Cartagena",
-     "Gunmen seize 25 hostages after a failed heist.",
+    ("CARTAGENA · CRIME", "Cartagena hostages seized",
+     "Gunmen seize 25 hostages in a heist.",
      "REPORTED", "Reuters", ban_store),
     ("KATHMANDU · DISASTER", "5.3 quake shakes Nepal",
-     "5.3 quake in Koshi; tremors felt in eastern India.",
+     "5.3 quake in Koshi; tremors in India.",
      "REPORTED", "Reuters · EMSC", ban_quake),
     ("AUSTRALIA · ECONOMY", "Australia CPI jumps to 4.9%",
      "CPI 4.9% (was 4.3%); trimmed mean 3.8%.",
@@ -716,7 +718,7 @@ ALSO_ON = [
     ("Eisenkot clinches coalition pact", "REPORTED"),
     ("Ukraine hits Russian oil plants", "REPORTED"),
     ("Iran braces for gas shortages", "REPORTED"),
-    ("Deere misses; farm sales -15%", "REPORTED"),
+    ("French confidence rises to 82", "CONFIRMED"),
     ("New-home sales 701,000", "CONFIRMED"),
     ("Durables +0.2%; core +1.2%", "CONFIRMED"),
     ("EU briefs on migration funds", "CONFIRMED"),
@@ -795,7 +797,7 @@ DATE_CHECK_TEXT = (
     "Tue 24 Nov: Hormuz tankers hit mines; Sanofi buys Insmed ($41bn); "
     "Hasina to fly home 16 Dec; Gaza strike kills a Hamas chief; Nikkei "
     "+3.9%; KOSPI +6.3%; Gukesh–Sindarov Game 1 drawn; Solomons exit notice. "
-    "Nothing here is from before 13 November 2026."
+    "All stories above are from 25 November 2026."
 )
 
 
@@ -806,11 +808,11 @@ def draw_date_check(draw, x, y, w, h):
     draw.rectangle([x, y, x + w, y + 18], fill=RED)
     draw.text((x + 6, y + 4), "DATE CHECK — READ THIS FIRST", font=f_h,
               fill=(255, 255, 255))
-    f_body = font(SERIF, 9)
+    f_body = font(SERIF, 10)
     cy = y + 22
     for ln in wrap(draw, DATE_CHECK_TEXT, f_body, w - 12):
         draw.text((x + 6, cy), ln, font=f_body, fill=(40, 30, 26))
-        cy += 11
+        cy += 12
     return cy
 
 
@@ -838,7 +840,7 @@ def draw_footer(draw, y):
     centered(draw, W // 2, y,
              "Sources: Reuters · Xinhua · CMSA · AP · NYT · ABS · Yonhap · "
              "Aju Press · Tasmania Fire Service · Consilium · RFE/RL · BEA · "
-             "Census · DOL · EMSC · US Army · Zacks",
+             "Census · DOL · EMSC · US Army · Zacks · INSEE",
              f_f, fill=MUTED)
     centered(draw, W // 2, y + 11,
              "Every story dated Wednesday 25 November 2026 (UTC) unless noted. "
