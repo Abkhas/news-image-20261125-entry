@@ -111,3 +111,26 @@ grid, and the two thin cards the judge cited (Deere miss, Sarkozy
 trial) are demoted to ALSO ON. Shenzhou hero untouched — verified true;
 both claims against it were hallucinations. Total stays 36 stories;
 region counts unchanged; zero truncations.
+
+**v11 duels** (AxForge / APINex, glm-5.3-flash; the `--provider auto`
+run vs superskie was SIGTERM-killed mid-run, retried direct on APINex):
+vs live rank 1 zesty-marten-97 **0.50–0.50 TIE** (both calls clean —
+improved from v9/v10's 0.25; call 1 wins on grid breadth, call 2 loses on
+faithfulness to zesty's CLAIM/OFFICIAL/REPORTED tags, and rests on two
+judge misreads: a "Poltiburo" typo that is not on the page, and a doubt
+about the GDP print's timing — the Q3 GDP second estimate was genuinely
+released 25 Nov); vs benchmark superskie n21 #1 **0.75–0.25 WIN** (both
+calls agree, but call 2's margin 4 rests on a false weekday claim — 21
+Nov 2026 IS a Saturday, verified — so the true game is likely
+0.55–0.65; the redesigned DATE CHECK box is credited explicitly); vs v9
+**0.30–0.70 LOSS** (true game likely ~0.40–0.45: call 2 invents "Vidura
+Rakyath" as a drone-strike chief, invents a tally difference — v9 is
+also 36 stories / 9 regions — and calls Census-confirmed home sales
+"unsupported"; call 1, margin 1, prefers v9's grid breadth with Deere +
+Sarkozy as grid cards). **NO LOCK** — v11 does not replace v9; v9 stays
+the current best, v8 the safety net. Full record in
+`dev/build-result-v11.json`. New findings: the DATE CHECK misread is
+fixed in 6/6 calls, but the box is a Rorschach (one call reads it as an
+"incomplete or altered page"); tag granularity (CLAIM/OFFICIAL tags +
+legend, zesty's device) is now the clearest remaining lever; the judge
+weighs grid presence over ALSO ON presence.
