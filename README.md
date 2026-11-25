@@ -235,3 +235,28 @@ $5 by Khase at 01:07 WIB 26 Nov, so the mini-panel gate
 (openrouter-low + AxForge) is available for the submit decision; kit
 level 48 is rolling out (header reads 48, tarball still prints 46) —
 re-check the kit level at submit time.
+
+**v14 duels** (mini-panel, glm-5.3-flash — openrouter-low + AxForge on
+all three legs; OpenRouter is back after Khase's $5 top-up 01:07 WIB,
+total v14 OpenRouter cost $0.0038): vs v13 **0.40 (openrouter-low) +
+0.35 (AxForge) LOSS — NO LOCK** (all four calls to v13, margins 1+1
+and 1+2, tails clean and unanimous: the ONLY difference between the
+pages is the one swapped card, and every call decides it the same way
+— the Cartagena hostage story is a more consequential world story
+than a footballer's sentencing, and swapping it narrows the page
+Europe 7 vs 6, S. America 2 vs 3; the sport lever backfired); vs live
+rank 1 zesty-marten-97 **0.30 + 0.30 LOSS** on both providers (down
+from v13's 0.50 AxForge tie — zesty's top-three lead selection +
+craft/hierarchy now decide both calls; the openrouter-low call 1 rests
+on misreads "Nvidis synfake?" / "OP2J ends" / the false Riyadh
+premise, all grep-verified absent); vs benchmark superskie n21 #1
+**SPLIT 0.70 (openrouter-low WIN) / 0.35 (AxForge LOSS)**, aggregate
+0.525 — the AxForge leg failed once (exit 1, 0-byte) and served on
+direct retry; its call 1 rests entirely on misreads (Army→Navy,
+Ali→Air, Kutryk→Knutyl, "US data pile"→"Daba pila") and is
+discounted, call 2 is a genuine narrow loss on field breadth
+(superskie's 14 fields incl. crypto/cricket vs our 9 regions). **NO
+LOCK — v13 stays the current best, v8 stays the safety net. NO v15:**
+the gate tails show the swap itself was the defect (a revert is v13,
+already the best); no other concrete fixable defect in the tails.
+Full record in `dev/build-result-v14.json`.
