@@ -154,3 +154,26 @@ legend strip (masthead sub −2, regions −2, timeline −2, heroes −2, hero
 illustration 85→80, gaps 6→4, stats band 54→50); the old tiny legend
 under the DATE CHECK box is removed. Total stays 36 stories; zero
 truncations; main.py edited in-session (docstring) for thinking_revised.
+
+**v12 duels** (AxForge via `--provider auto`, glm-5.3-flash — all three
+legs served first try, no failover): vs live rank 1 zesty-marten-97
+**0.70–0.30 WIN** (both calls agree, margins 2+2 — first win vs the
+live rank 1 in this loop, up from v9/v10's 0.25 and v11's 0.50 tie; both
+calls clean, breadth decisive, and the tag lever registered in both:
+"flags one-party claims on the Volga strikes", "uses
+Claim/Official/Reported/Confirmed tags consistently"); vs benchmark
+superskie n21 #1 **0.55–0.45 split win** (call 1 clean win margin 2 on
+breadth; call 2 rests on small-text misreads — "Poliburo", "7.01,000",
+"Hu Jintao" for Chen Jining — so the true game is likely ~0.60–0.65);
+vs v9 **0.50–0.50 TIE** (split 1–1, margins 2+2: call 1 is a clean v12
+win on v9's breadth collapse and garbled old DATE CHECK box; call 2
+goes to v9 on the ambiguous "Every story here is 25 Nov 2026" closing,
+a misread "+9.9%" KOSPI session, chart clutter, and a third "Politburo"
+misread variant — while conceding "B a cleaner tag legend"). **NO LOCK**
+— v12 does not replace v9; v9 stays the current best, v8 the safety
+net. Full record in `dev/build-result-v12.json`. New findings: the
+DATE CHECK closing line is ambiguous ("here" read as the box contents
+twice — reword to "Every story ON THIS PAGE is 25 Nov 2026"); the
+Takaichi card has a head/body name mismatch (Takaichi vs Seki, one-word
+fix); the WHO/Cuba ALSO ON line's precise sourcing is unverified and
+should be checked or reworded next round.
