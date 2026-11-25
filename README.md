@@ -205,3 +205,33 @@ unambiguous: this is a WHO call, NOT the UN General Assembly's annual
 embargo vote (Res 81/7, 28 Oct 2026) the judge kept confusing it with.
 Tag stays OFFICIAL. Total stays 36 stories; zero truncations; main.py
 edited in-session (docstring) for thinking_revised.
+
+**v13 duels** (backup chain, glm-5.3-flash — auto chain failed twice
+for the v9 leg, AxForge recovered and served the direct retries): vs
+live rank 1 zesty-marten-97 **0.50–0.50 TIE** on the trustworthy
+AxForge retry (split 1–1, margins 2+2; the auto-chain APINex reading
+of 0.15 is discounted — its first call is thin, 253 tokens, 0
+reasoning, and rests on the false premise that the page "does not
+clearly date itself" when the masthead reads WEDNESDAY 25 NOVEMBER
+2026); vs benchmark superskie n21 #1 **0.30 then 0.40 on retry**
+(two AxForge samples, aggregate 0.35 — the first rests on a
+"Flanders" misread and invented 13:00 times, both grep-verified
+false; the retry is coherent, "coin flip territory", and credits
+superskie's breadth across sport/crypto/science/health/cricket); vs
+v9 **0.75–0.25 WIN — LOCK** (AxForge direct, both calls agree,
+margins 3+2, tails clean: call 1 credits the breadth fix and notes
+v9's Takaichi/Seki mixed title as a blemish; call 2 credits the tag
+legend AND the DATE CHECK closing "Every story on this page is 25
+Nov 2026" as making "the day-boundary airtight"). **LOCK** — v13
+replaces v9 as the current best, v8 stays the safety net. Full record
+in `dev/build-result-v13.json`. Notes for the parent: the auto chain
+was down across all four providers twice tonight (AxForge disconnect,
+OrcaRouter 429, Runcrate 529, APINex failing) — direct
+`--provider axforge` is the working recovery path; 4 of 10 v13 calls
+rest partly on small-text misreads (Flinders→Flanders,
+Shenzhou→Shenzhen, Seki→Sekai, invented times), so sub-0.65
+backup-chain readings carry little signal; OpenRouter was topped up
+$5 by Khase at 01:07 WIB 26 Nov, so the mini-panel gate
+(openrouter-low + AxForge) is available for the submit decision; kit
+level 48 is rolling out (header reads 48, tarball still prints 46) —
+re-check the kit level at submit time.
