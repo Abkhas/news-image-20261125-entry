@@ -12,6 +12,15 @@ paid winners' constants — timeline + DATE CHECK + map + source chips +
 footer, no VERDICT boxes), 36 stories, zero scheduled lines — every ALSO ON
 line and grid card is an event that happened.
 
+v10 is the fix round after v9 (loop rule, Khase 22:46 WIB): the false
+"Anthropic below $83 IPO price" ALSO ON line is gone (Anthropic is private,
+it has no IPO price — the judge called our stock items the shakiest facts
+on the page), and the breadth gap vs live rank 1 zesty-marten-97 is closed:
+Africa 1→5 (Shakahola conviction, Phala Phala report quashed, Edochie dies,
+Boakai's $5.7bn gold deal), South America 1→3 (US 10% jet tariff, Ecuador
+ops review), by swapping out the weakest N. America / East Asia lines.
+Total stays 36 stories; the template is untouched.
+
 ## The day
 
 - **Shenzhou-24** lifts off from Jiuquan at 00:18 UTC — Pakistan's
@@ -45,9 +54,9 @@ python3 main.py             # copies entry.png to /output/entry.png
 ```
 
 Sources for every story are named on the page (Reuters, Xinhua, CMSA,
-ABS, Yonhap, Aju Press, Tasmania Fire Service, Consilium, RFE/RL, BEA,
-Census, DOL, EMSC, US Army, Zacks). Research notes live in the builder's
-dev folder.
+ABS, Yonhap, Aju Press, Tasmania Fire Service, Consilium, Capital FM,
+Sowetan, This Day, MICAT, BEA, Census, DOL, EMSC, US Army, Zacks, INSEE).
+Research notes live in the builder's dev folder.
 
 ## Duel record
 
@@ -67,3 +76,20 @@ gate. Full duel JSONs live in the dev folder.
   returns zero truncations; Huawei grid card swapped for Deere earnings,
   a genuine 25-Nov story, after the judge flagged the 24-Nov verdict;
   France confidence 82 added as the 22nd ALSO ON line).
+- **v10** (entry sha 0fa8a409…): fix round after v9 (Khase's loop rule):
+  false Anthropic IPO line out, Africa 1→5 / S. America 1→3. Duels
+  (APINex, glm-5.3-flash; `--provider auto` failed on outage for the
+  superskie leg): vs live rank 1 zesty-marten-97 **0.25–0.75 DECISIVE
+  LOSS** (both calls agree — the breadth fix did not move the game; call
+  1 gives the leads to zesty's chip/Volga/Hormuz trio, call 2 rests on a
+  Shenzhou hallucination: our DATE CHECK never mentions Shenzhou, grep
+  proves it); vs benchmark superskie n21 #1 **0.40–0.60 LOSS** (both
+  calls agree; call 1 rejects true Shenzhou-24 on stale prior + misreads
+  the DATE CHECK exclusions as inclusions); vs v9 **0.50–0.50 TIE**
+  (both calls rest on misattributed content — timeline clip and removed
+  lines belong to v9, not v10; no signal). **NO LOCK** — v9 stays the
+  current best. Full record in `dev/build-result-v10.json`. New finding:
+  the judge misreads our DATE CHECK exclusion list as page content for
+  the third time (Riyadh in v9, Shenzhou + "admits pre-day items" in
+  v10) — the box's design invites it, and it is the clearest fixable
+  defect for a v11.

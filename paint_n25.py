@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Paint the n25 news-image entry: one page, 1024x1024, PIL only.
 
-Wednesday 25 November 2026, 36 stories, 9 regions. v9 — the frozen-template
-doctrine (first test): 4 heroes + 10 grid + 22 ALSO ON, zero scheduled lines,
-US data pile (13:30 UTC) as hero 4. All stories happened on Wednesday
-25 November 2026 (UTC). 24-November stories are excluded in the DATE CHECK
-panel, not in the page. Deterministic: no random, no network, no timestamps.
+Wednesday 25 November 2026, 36 stories, 9 regions. v10 — the fix round
+after v9 (loop rule, Khase 22:46 WIB): false Anthropic IPO line replaced;
+Africa 1→5, S. America 1→3 (verified 25 Nov stories, zero fillers).
+All stories happened on Wednesday 25 November 2026 (UTC). 24-November
+stories are excluded in the DATE CHECK panel, not in the page.
+Deterministic: no random, no network, no timestamps.
 """
 import os
 import sys
@@ -251,15 +252,15 @@ def draw_masthead(draw):
 
 
 REGION_CHIPS = [
-    ("EAST ASIA 6", (178, 34, 34)),
+    ("EAST ASIA 5", (178, 34, 34)),
     ("OCEANIA 5", (21, 101, 192)),
-    ("N. AMERICA 10", (46, 125, 50)),
+    ("N. AMERICA 6", (46, 125, 50)),
     ("EUROPE 6", (90, 60, 140)),
     ("MIDDLE EAST 3", (176, 124, 0)),
     ("S. ASIA 2", (0, 130, 130)),
-    ("S. AMERICA 1", (160, 82, 45)),
-    ("AFRICA 1", (120, 90, 20)),
-    ("WORLD 2", (90, 86, 76)),
+    ("S. AMERICA 3", (160, 82, 45)),
+    ("AFRICA 5", (120, 90, 20)),
+    ("WORLD 1", (90, 86, 76)),
 ]
 
 
@@ -710,7 +711,7 @@ ALSO_ON = [
     ("Seoul Metro strike averted", "CONFIRMED"),
     ("Baby girl born as Dad orbits", "CONFIRMED"),
     ("16 Days of Activism begins", "CONFIRMED"),
-    ("USTR probes 16 economies", "REPORTED"),
+    ("Nollywood icon Edochie dies", "CONFIRMED"),
     ("Solomons signs Canberra pact", "REPORTED"),
     ("WHO: lift Cuba oil blockade", "REPORTED"),
     ("Lukashenko to fly Zelenskiy", "REPORTED"),
@@ -720,15 +721,15 @@ ALSO_ON = [
     ("Iran braces for gas shortages", "REPORTED"),
     ("French confidence rises to 82", "CONFIRMED"),
     ("New-home sales 701,000", "CONFIRMED"),
-    ("Durables +0.2%; core +1.2%", "CONFIRMED"),
+    ("Boakai signs $5.7bn gold deal", "REPORTED"),
     ("EU briefs on migration funds", "CONFIRMED"),
     ("Germany-Africa summit closes", "REPORTED"),
-    ("Kosdaq -3.1%; TAIEX -4.6%", "REPORTED"),
+    ("US proposes 10% jet tariff", "REPORTED"),
     ("Perth CPI 5.5%, Hobart 6.0%", "CONFIRMED"),
     ("Aussie dollar jumps on hot CPI", "REPORTED"),
-    ("RFE/RL back on shortwave", "REPORTED"),
-    ("Anthropic below $83 IPO price", "REPORTED"),
-    ("Micron -11%, AMD -8.9%", "REPORTED"),
+    ("Ecuador: US ops under review", "REPORTED"),
+    ("Shakahola: Mackenzie guilty", "CONFIRMED"),
+    ("Phala Phala report quashed", "CONFIRMED"),
 ]
 
 # Simplified continent blobs (map-local coords, 280 x 170)
@@ -839,8 +840,8 @@ def draw_footer(draw, y):
     f_f = font(SANS, 8)
     centered(draw, W // 2, y,
              "Sources: Reuters · Xinhua · CMSA · AP · NYT · ABS · Yonhap · "
-             "Aju Press · Tasmania Fire Service · Consilium · RFE/RL · BEA · "
-             "Census · DOL · EMSC · US Army · Zacks · INSEE",
+             "Aju Press · Tasmania Fire Service · Consilium · Capital FM · "
+             "Sowetan · This Day · MICAT · BEA · Census · DOL · EMSC · US Army · Zacks · INSEE",
              f_f, fill=MUTED)
     centered(draw, W // 2, y + 11,
              "Every story dated Wednesday 25 November 2026 (UTC) unless noted. "
