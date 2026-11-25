@@ -177,3 +177,31 @@ twice — reword to "Every story ON THIS PAGE is 25 Nov 2026"); the
 Takaichi card has a head/body name mismatch (Takaichi vs Seki, one-word
 fix); the WHO/Cuba ALSO ON line's precise sourcing is unverified and
 should be checked or reworded next round.
+
+**v13** is the fix round after v12 (loop rule, Khase 22:46 WIB — the
+v12 tails show fixable defects and time allows; deadline Fri 07:00
+WIB). Three small, verified levers, nothing else structural:
+1. DATE CHECK closing reworded from "Every story here is 25 Nov
+2026." to "Every story on this page is 25 Nov 2026." — the judge read
+"here" as the box's own contents TWICE (v11, v12). Note: the brief's
+caps "ON THIS PAGE" measures 213.7px at 9px bold in the 220px box
+(no padding left); lowercase "on this page" is 205.5px and fits — the
+disambiguating words are identical either way.
+2. Takaichi card fixed with a VERIFIED fact: the censure motion targets
+Education Minister Yoshihiro Seki, not PM Takaichi — six opposition
+parties in the House of Councillors agreed Tue 24 Nov to submit a
+censure motion against Seki over a fundraising scandal (QNC News, TBS,
+25 Nov; submission Wed 26 Nov 10:00, debate Fri 27 Nov). Head is now
+"Seki faces censure", body "Six parties agree to censure Seki." —
+head and body agree on the verified name. Takaichi is only at risk
+politically (minority upper house), not the motion's target.
+3. WHO/Cuba ALSO ON line reworded to "Tedros: lift Cuba oil blockade"
+— VERIFIED: WHO Director-General Tedros, concluding a three-day
+Havana visit, called Tue 24 Nov for the immediate lifting of the US
+fuel/oil blockade on Cuba, warning it endangers children's lives; WHO
+pledged $2m for immunisation + medical equipment (Reuters, 24 Nov,
+widely carried 25 Nov). Naming Tedros makes the attribution
+unambiguous: this is a WHO call, NOT the UN General Assembly's annual
+embargo vote (Res 81/7, 28 Oct 2026) the judge kept confusing it with.
+Tag stays OFFICIAL. Total stays 36 stories; zero truncations; main.py
+edited in-session (docstring) for thinking_revised.
