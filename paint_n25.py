@@ -1,20 +1,28 @@
 #!/usr/bin/env python3
 """Paint the n25 news-image entry: one page, 1024x1024, PIL only.
 
-Wednesday 25 November 2026, 36 stories, 9 regions. v12 — the fix round
-after v11 (loop rule, Khase 22:46 WIB): TAG GRANULARITY, the clearest
-remaining lever from the v11 duel tails (cited in TWO duels: zesty call 2
-gives faithfulness to zesty's CLAIM/OFFICIAL/REPORTED system + legend;
-v9 call 2 complains our tags are flat). New CLAIM tag (purple: one party
-asserts it, no independent confirmation) and OFFICIAL tag (blue: an
-official source states it), plus a one-line TAGS legend strip between the
-stats band and the grid using the real chips. Volga refineries move
-REPORTED -> CLAIM with "Channels say" hedging (Reuters could not
-independently verify); WHO / Solomons pact / EU migration brief move to
-OFFICIAL; Lukashenko's Zelenskiy flight moves to CLAIM. DATE CHECK box
-kept (net positive in v11 duels); chip lead heroes kept; Deere/Sarkozy
-stay demoted (v10 tails called them thin; the judge's grid-breadth
-preference is contradictory across calls — panel noise, not a lever).
+Wednesday 25 November 2026, 36 stories, 9 regions. v14 — the fix round
+after v13 (loop rule, Khase 22:46 WIB): SPORT BREADTH, the clearest
+remaining lever from the v13 duel tails (the coherent superskie retry
+call credits superskie's breadth across sport/crypto/science/health/
+cricket vs our economy/politics/war/disaster-heavy grid — we had NO
+sport story). One verified 25-Nov sport story promoted into the grid:
+Raheem Sterling's suspended jail sentence (Sky Sports, Wed 25 Nov
+11:37 UK — ex-England winger, 31, 12-month term suspended 18 months
+for dangerous driving, 2-year ban, 100 hours unpaid work) replaces the
+weakest grid card (Cartagena hostages — a thin crime story, not in the
+timeline or stat strip, so nothing else orphans). The Tuesday-evening
+Champions League results (Real Madrid 5-1 PSV, Arsenal 1-1 Dortmund,
+Man City 2-2 Napoli) were REJECTED: they happened Tue 24 Nov UTC, and
+the Liverpool 1-4 PSV result the search returns is 26 Nov 2025, a full
+year earlier — both would break the page's own date rule. Region chips
+EUROPE 6->7, S. AMERICA 3->2 (Cuba counts as S. AMERICA in this
+accounting, so the region survives with 2); map pin 8 moves from
+Cartagena to southern England (legend labels it London; the kicker
+names the court town, Basingstoke). Everything else frozen from v13: tags +
+legend, DATE CHECK closing "Every story on this page is 25 Nov 2026",
+Seki censure, Tedros Cuba line, chip lead heroes, 36 stories, zero
+fillers.
 Layout tightened ~19px to fund the 18px legend strip (masthead sub -2,
 regions -2, timeline -2, heroes -2, hero illo 85->80, gaps 6->4, stats
 54->50); old tiny legend under DATE CHECK removed (replaced by the strip).
@@ -272,10 +280,10 @@ REGION_CHIPS = [
     ("EAST ASIA 5", (178, 34, 34)),
     ("OCEANIA 5", (21, 101, 192)),
     ("N. AMERICA 6", (46, 125, 50)),
-    ("EUROPE 6", (90, 60, 140)),
+    ("EUROPE 7", (90, 60, 140)),
     ("MIDDLE EAST 3", (176, 124, 0)),
     ("S. ASIA 2", (0, 130, 130)),
-    ("S. AMERICA 3", (160, 82, 45)),
+    ("S. AMERICA 2", (160, 82, 45)),
     ("AFRICA 5", (120, 90, 20)),
     ("WORLD 1", (90, 86, 76)),
 ]
@@ -716,9 +724,9 @@ GRID = [
     ("TOKYO · POLITICS", "Seki faces censure",
      "Six parties agree to censure Seki.",
      "REPORTED", "QNC News · TBS", ban_torii),
-    ("CARTAGENA · CRIME", "Cartagena hostages seized",
-     "Gunmen seize 25 hostages in a heist.",
-     "REPORTED", "Reuters", ban_store),
+    ("BASINGSTOKE · SPORT", "Sterling's term suspended",
+     "Winger, 31, sentenced for dangerous driving.",
+     "CONFIRMED", "Sky Sports", ban_ball),
     ("KATHMANDU · DISASTER", "5.3 quake shakes Nepal",
      "5.3 quake in Koshi; tremors in India.",
      "REPORTED", "Reuters · EMSC", ban_quake),
@@ -809,7 +817,7 @@ CONTINENTS = [
 
 PINS = [
     (217, 57, "1"), (248, 148, "2"), (228, 74, "3"), (239, 60, "4"),
-    (69, 56, "5"), (176, 74, "6"), (143, 47, "7"), (81, 90, "8"),
+    (69, 56, "5"), (176, 74, "6"), (143, 47, "7"), (134, 28, "8"),
     (206, 71, "9"), (262, 134, "10"),
 ]
 
@@ -902,7 +910,7 @@ def draw_bottom(draw, y, band_h):
               "1 Jiuquan · 2 Flinders I. · 3 Shanghai · 4 Seoul · 5 Iowa",
               font=f_leg, fill=MUTED)
     draw.text((mx, y + band_h - 5),
-              "6 Riyadh · 7 Paris · 8 Cartagena · 9 Kathmandu · 10 Canberra",
+              "6 Riyadh · 7 Paris · 8 London · 9 Kathmandu · 10 Canberra",
               font=f_leg, fill=MUTED)
     draw_also_on(draw, ax, y, also_w, band_h)
     draw_date_check(draw, dx, y, dc_w)
